@@ -1,4 +1,4 @@
-# Contributing GuildLines 
+# Contributing GuideLines
 
 ## Adding New Features and Improving the code of the bot
 You can add your Own features by creating a Good and Neat pull request. Also please follow the [api guildlines](https://discord.com/developers/docs/policies-and-agreements/developer-terms-of-service#:~:text=You%20may%20only%20use%20API,inconsistency%20with%20your%20privacy%20policy.) from the discord 
