@@ -15,4 +15,4 @@
 
 Contibute to this repo to make this simple joke bot into cool 
 
-- Please Read the [contributing.md]() for more info 
+- Please Read the [contributing.md](https://github.com/Xelyer/Xelyerbot/blob/main/CONTRIBUTING.md) for more info 
