@@ -1,18 +1,23 @@
-# Xelyer the Joke Bot 
+<h1 align="center">Xelyer - The Joke Bot</h1>
 
-## What is Xelyer ?
-*Xelyer a simple joke bot build with discord.py . It uses JOKE Api to get some Jokes for you*
+<p align="center">
+  <img src="https://cdn.discordapp.com/attachments/1101145432941404162/1111928467618025583/screen1.png" alt="Demo" width="300">
+</p>
 
-<img align="right" width="300" src="https://cdn.discordapp.com/attachments/1101145432941404162/1111928467618025583/screen1.png" alt="demo" />
+<p align="center">Xelyer is a modern joke bot built with discord.py. It fetches jokes from the JOKE API to bring humor to your Discord server.</p>
 
+## 🤖 Add Xelyer to Your Discord Server
 
-## How do i add Xelyer Bot ?
+You can easily add Xelyer to your Discord server by clicking on the following link: [Add Xelyer to Your Server](https://discord.com/oauth2/authorize?client_id=1111316333666254878&permissions=534723950656&scope=bot)
 
-- You can add Xelyer through this [Link](https://discord.com/oauth2/authorize?client_id=1111316333666254878&permissions=534723950656&scope=bot) 
+## 🌟 Contributing
 
+We welcome contributions to make Xelyer even better! If you have any ideas, bug fixes, or feature enhancements, please check out our [contributing guidelines](CONTRIBUTING.md) for more information.
 
-## Want to make this Small Joke bot to cool ?
+## 📝 Feedback and Support
 
-Contibute to this repo to make this simple joke bot into cool 
+If you have any questions, suggestions, or need support, feel free to open an issue on the GitHub repository.
 
-- Please Read the [contributing.md](https://github.com/Xelyer/Xelyerbot/blob/main/CONTRIBUTING.md) for more info 
+---
+
+<p align="center">Made with ❤️ by the Xelyer team</p>

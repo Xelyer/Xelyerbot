@@ -23,10 +23,23 @@ async def on_ready():
 
 
 @bot.command()
-async def joke(ctx):
+async def joke(ctx: commands.Context):
+    embed = discord.Embed(
+        title="Joke!",
+        description="Please wait! I'm generating your joke ...",
+        color=discord.Color.random()
+    )
+    joke_msg = await ctx.send(embed=embed, content=f"{ctx.author.mention}")
     response = requests.get("https://official-joke-api.appspot.com/random_joke")
     joke = json.loads(response.text)
-    await ctx.send(f"{joke['setup']}\n{joke['punchline']}")
+    new_embed = discord.Embed(
+        title=f"{joke['setup']}",
+        description=f"{joke['punchline']}",
+        color=discord.Color.blurple()
+    )
+    await joke_msg.edit(embed=new_embed)
+    await joke_msg.add_reaction('😂')
+    await joke_msg.add_reaction('👎')
 
 
 
