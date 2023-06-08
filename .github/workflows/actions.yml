@@ -3,7 +3,7 @@ name: Auto Release
 on:
   push:
     branches:
-      - main
+      - Xelyer
 
 jobs:
   create_release:
