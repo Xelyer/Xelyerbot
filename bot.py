@@ -4,6 +4,13 @@ import json
 import dotenv
 import os
 import aiohttp
+import shutil
+import random
+import praw
+import asyncio
+import io
+
+# From Cmd !
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -16,12 +23,21 @@ prefix = "!"  # Choose your preferred prefix
 bot = commands.Bot(command_prefix=prefix,intents=intents)
 
 
+# Bot Status !
+async def status_task():
+    while True:
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Github.com/Xelyer"))
+        await asyncio.sleep(600000)
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="xelyerbot.netlify.app"))
+        await asyncio.sleep(600000)
+        await bot.change_presence(activity=discord.Game(name="!getstarted"))
+        await asyncio.sleep(600000)
+
 
 @bot.event
 async def on_ready():
     print(f"Bot is ready! Logged in as {bot.user.name}")
-    print(f"Bot Status Is Spiced Up ! {bot.user.name}")
-    await bot.change_presence(activity=discord.Game('!joke and !search_repo <query>'))
+    bot.loop.create_task(status_task())
 
 # Joke api 
 
@@ -61,6 +77,42 @@ async def search_repo(ctx, query):
             else:
                 await ctx.send('No repositories found.')
 
+
+# Memes
+@bot.command()
+async def meme(ctx):
+    try:
+        response = requests.get("https://meme-api.com/gimme")
+        response.raise_for_status()  # Raise an exception for non-2xx HTTP status codes
+        json_data = response.json()
+        meme_url = json_data['url']
+    
+        # Fetch the image from the URL
+        meme_response = requests.get(meme_url)
+        meme_image = io.BytesIO(meme_response.content)
+
+        await ctx.send(ctx.message.author.mention)
+        await ctx.send('This is your Meme!')
+        # Send the image to the Discord channel 
+        await ctx.send(file=discord.File(meme_image, 'meme.png'))
+    except (requests.exceptions.RequestException, json.JSONDecodeError) as e:
+        print(f"Error fetching meme: {e}")
+        await ctx.send(ctx.message.author.mention)
+        await ctx.send("Failed to fetch a meme at the moment. Please try again later.")
+
+# Help Cmd
+@bot.command()
+async def getstarted(ctx):
+    # Create an embed message to display the help information
+    embed = discord.Embed(title="Bot Commands", description="List of available commands", color=discord.Color.blue())
+    
+    # Add fields for each command
+    embed.add_field(name="!joke", value="Gets Jokes", inline=False)
+    embed.add_field(name="!search_repo [repo_name]", value="Search a Repo on Github And Send it ", inline=False)
+    embed.add_field(name="!meme", value="Gets Meme From Memeapi", inline=False)
+    
+    # Send the embed message to the channel
+    await ctx.send(embed=embed)
 
 
 bot.run(os.getenv('token'))
