@@ -6,13 +6,13 @@ import os
 import aiohttp
 import shutil
 import random
-import praw
 import asyncio
 import io
  
 # From Cmd !
 from discord.ext import commands
 from dotenv import load_dotenv
+from keepmealive import keep_alive
 
 load_dotenv()
 
@@ -92,7 +92,7 @@ async def meme(ctx):
         meme_image = io.BytesIO(meme_response.content)
 
         await ctx.send(ctx.message.author.mention)
-        await ctx.send('This is your Meme!')
+
         # Send the image to the Discord channel 
         await ctx.send(file=discord.File(meme_image, 'meme.png'))
     except (requests.exceptions.RequestException, json.JSONDecodeError) as e:
@@ -114,5 +114,5 @@ async def getstarted(ctx):
     # Send the embed message to the channel
     await ctx.send(embed=embed)
 
-
+keep_alive()
 bot.run(os.getenv('token'))
