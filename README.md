@@ -3,12 +3,14 @@
 
 <p align = "left">
 
-[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 
 </p>
 
+<br><br>
+
 <p align="center">
-  <img src="#img/Githubreadme.png" alt="Demo" width="300">
+  <img src="img/Githubreadme.png" alt="Demo" width="300">
 </p>
 
 <p align="center">Xelyer is a modern joke bot built with discord.py.Bring humor to your Discord server.</p>
