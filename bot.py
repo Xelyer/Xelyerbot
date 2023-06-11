@@ -33,11 +33,27 @@ async def status_task():
         await bot.change_presence(activity=discord.Game(name="!getstarted"))
         await asyncio.sleep(600000)
 
-
+# Bot Online Notify
 @bot.event
 async def on_ready():
+    server = bot.get_guild(1116694843524141117)
+    channel = server.get_channel(1116694844899852367)
+    await channel.send('Bot is online!')
     print(f"Bot is ready! Logged in as {bot.user.name}")
     bot.loop.create_task(status_task())
+
+# Bot Offline notify
+
+@bot.event
+async def on_disconnect():
+    print('Bot is offline!')
+
+    server = bot.get_guild(1116694843524141117)
+    channel = server.get_channel(1116694844899852367)
+
+    await channel.send('Bot is offline!')
+
+
 
 # Joke api 
 
